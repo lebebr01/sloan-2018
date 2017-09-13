@@ -25,7 +25,7 @@ sites = sites %>%
   mutate(HAN = ifelse(n == max, "Home", ifelse(Location %in% homes$Location, "Away", "Neutral")))
 
 ## Adding back to game data
-yby = left_join(yby05, sites[c("Team", "Location", "HAN")], by = c("Team", "Location"))
+yby = left_join(yby, sites[c("Team", "Location", "HAN")], by = c("Team", "Location"))
 
 
 
