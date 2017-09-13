@@ -8557,34 +8557,21 @@ Oregon St.,1994,Jerry Pettibone,4,7,0,0.36364,223,239,-16,NA,NA
 Oregon St.,1995,Jerry Pettibone,1,10,0,0.09091,136,237,-101,NA,NA
 Oregon St.,1996,Jerry Pettibone,2,9,0,0.18182,216,388,-172,NA,NA
 Oregon St.,1997,Mike Riley,3,8,0,0.27273,195,285,-90,2,0
-Oregon St.,1997,Mike Riley,3,8,0,0.27273,195,285,-90,2,0
-Oregon St.,1998,Mike Riley,5,6,0,0.45455,286,291,-5,2,0
 Oregon St.,1998,Mike Riley,5,6,0,0.45455,286,291,-5,2,0
 Oregon St.,1999,Dennis Erickson,7,5,0,0.58333,347,277,70,2,0
 Oregon St.,2000,Dennis Erickson,11,1,0,0.91667,400,212,188,2,0
 Oregon St.,2001,Dennis Erickson,5,6,0,0.45455,287,259,28,2,0
 Oregon St.,2002,Dennis Erickson,8,5,0,0.61538,414,267,147,2,0
 Oregon St.,2003,Mike Riley,8,5,0,0.61538,433,301,132,2,0
-Oregon St.,2003,Mike Riley,8,5,0,0.61538,433,301,132,2,0
-Oregon St.,2004,Mike Riley,7,5,0,0.58333,320,294,26,2,0
 Oregon St.,2004,Mike Riley,7,5,0,0.58333,320,294,26,2,0
 Oregon St.,2005,Mike Riley,5,6,0,0.45455,293,365,-72,2,0
-Oregon St.,2005,Mike Riley,5,6,0,0.45455,293,365,-72,2,0
-Oregon St.,2006,Mike Riley,10,4,0,0.71429,389,311,78,2,0
 Oregon St.,2006,Mike Riley,10,4,0,0.71429,389,311,78,2,0
 Oregon St.,2007,Mike Riley,9,4,0,0.69231,362,294,68,2,0
-Oregon St.,2007,Mike Riley,9,4,0,0.69231,362,294,68,2,0
-Oregon St.,2008,Mike Riley,9,4,0,0.69231,397,300,97,2,0
 Oregon St.,2008,Mike Riley,9,4,0,0.69231,397,300,97,2,0
 Oregon St.,2009,Mike Riley,8,5,0,0.61538,409,325,84,2,0
-Oregon St.,2009,Mike Riley,8,5,0,0.61538,409,325,84,2,0
-Oregon St.,2010,Mike Riley,5,7,0,0.41667,293,322,-29,2,0
 Oregon St.,2010,Mike Riley,5,7,0,0.41667,293,322,-29,2,0
 Oregon St.,2011,Mike Riley,3,9,0,0.25,262,370,-108,2,0
-Oregon St.,2011,Mike Riley,3,9,0,0.25,262,370,-108,2,0
 Oregon St.,2012,Mike Riley,9,4,0,0.69231,423,268,155,2,0
-Oregon St.,2012,Mike Riley,9,4,0,0.69231,423,268,155,2,0
-Oregon St.,2013,Mike Riley,7,6,0,0.53846,452,408,44,2,0
 Oregon St.,2013,Mike Riley,7,6,0,0.53846,452,408,44,2,0
 Oregon St.,2014,Mike Riley,5,7,0,0.41667,308,379,-71,2,0
 Oregon St.,2015,Gary Andersen,2,10,0,0.16667,228,444,-216,0,NA
@@ -12751,29 +12738,13 @@ Wisconsin,1986,Jim Hilles,3,9,0,0.25,201,266,-65,NA,NA
 Wisconsin,1987,Don Morton,3,8,0,0.27273,202,299,-97,NA,NA
 Wisconsin,1988,Don Morton,1,10,0,0.09091,106,314,-208,NA,NA
 Wisconsin,1989,Don Morton,2,9,0,0.18182,172,341,-169,NA,NA
-Wisconsin,1990,Barry Alvarez,1,10,0,0.09091,133,285,-152,6,0
-Wisconsin,1990,Barry Alvarez,1,10,0,0.09091,133,285,-152,6,0
 Wisconsin,1990,Barry Alvarez,1,10,0,0.09091,133,285,-152,1,0
-Wisconsin,1991,Barry Alvarez,5,6,0,0.45455,172,194,-22,6,0
-Wisconsin,1991,Barry Alvarez,5,6,0,0.45455,172,194,-22,6,0
 Wisconsin,1991,Barry Alvarez,5,6,0,0.45455,172,194,-22,1,0
-Wisconsin,1992,Barry Alvarez,5,6,0,0.45455,212,199,13,6,0
-Wisconsin,1992,Barry Alvarez,5,6,0,0.45455,212,199,13,6,0
 Wisconsin,1992,Barry Alvarez,5,6,0,0.45455,212,199,13,1,0
-Wisconsin,1993,Barry Alvarez,10,1,1,0.875,354,195,159,6,0
-Wisconsin,1993,Barry Alvarez,10,1,1,0.875,354,195,159,6,0
 Wisconsin,1993,Barry Alvarez,10,1,1,0.875,354,195,159,1,0
-Wisconsin,1994,Barry Alvarez,8,3,1,0.70833,357,238,119,6,0
-Wisconsin,1994,Barry Alvarez,8,3,1,0.70833,357,238,119,6,0
 Wisconsin,1994,Barry Alvarez,8,3,1,0.70833,357,238,119,1,0
-Wisconsin,1995,Barry Alvarez,4,5,2,0.45455,235,253,-18,6,0
-Wisconsin,1995,Barry Alvarez,4,5,2,0.45455,235,253,-18,6,0
 Wisconsin,1995,Barry Alvarez,4,5,2,0.45455,235,253,-18,1,0
-Wisconsin,1996,Barry Alvarez,8,5,0,0.61538,377,243,134,6,0
-Wisconsin,1996,Barry Alvarez,8,5,0,0.61538,377,243,134,6,0
 Wisconsin,1996,Barry Alvarez,8,5,0,0.61538,377,243,134,1,0
-Wisconsin,1997,Barry Alvarez,8,5,0,0.61538,291,306,-15,6,0
-Wisconsin,1997,Barry Alvarez,8,5,0,0.61538,291,306,-15,6,0
 Wisconsin,1997,Barry Alvarez,8,5,0,0.61538,291,306,-15,1,0
 Wisconsin,1998,Barry Alvarez,11,1,0,0.91667,382,143,239,1,0
 Wisconsin,1999,Barry Alvarez,10,2,0,0.83333,409,154,255,1,0
