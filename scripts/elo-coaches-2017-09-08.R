@@ -13,10 +13,10 @@ library(readr)
 ### Read in data
 ##################################################
 
-coaches = read_csv("data/coaches_to2015.csv") %>% filter(Year >= 2005)
+coaches = read_csv("data/coaches_to2015.csv")
 head(coaches)
 
-games = read_csv(file = "data/elo-game-data.csv")
+games = read_csv(file = "data/elo-game-data-2017-09-08.csv")
 head(games)
 
 
@@ -62,7 +62,7 @@ tail(elo20, 20)
 my_elo = list(NULL)
 status = NULL
 
-for(i in 2005:2015){
+for(i in unique(games$year)){
   # Get one year's data
   games_year = games %>% 
     filter(year == i) %>% 
@@ -72,7 +72,7 @@ for(i in 2005:2015){
   elo_20 = elo(games_year, init = 1500, kfac = 20, history = TRUE, status = status)
   
   # Write output to list element
-  my_elo[[i-2004]] = elo_20$ratings %>% 
+  my_elo[[i-1887]] = elo_20$ratings %>% 
     mutate(Rank = 1:nrow(.)) %>%
     select(Player, Rating, Rank) %>%
     mutate(Year = i)
@@ -110,6 +110,6 @@ ELO2 = coaches %>%
 ### Write data to file
 ##################################################
 
-write.csv(ELO2, file = "data/elo-ratings.csv", row.names = FALSE)
+write.csv(ELO2, file = "data/elo-ratings-2017-09-08.csv", row.names = FALSE)
 
 

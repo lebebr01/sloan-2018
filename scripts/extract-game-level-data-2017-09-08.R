@@ -11,15 +11,11 @@ library(dplyr)
 ### Read in data
 ##################################################
 
-yby = read_csv("data/year_by_year_to2015.csv") %>% filter(Year >= 2005)
-coaches = read_csv("data/coaches_to2015.csv") %>% filter(Year >= 2005)
+yby = read_csv("data/year_by_year_to2015.csv")
+coaches = read_csv("data/coaches_to2015.csv")
 
 
 
-<<<<<<< Updated upstream
-## Adding back to game data
-yby = left_join(yby, sites[c("Team", "Location", "HAN")], by = c("Team", "Location"))
-=======
 # ##################################################
 # ### Add home, neutral, away
 # ##################################################
@@ -37,7 +33,6 @@ yby = left_join(yby, sites[c("Team", "Location", "HAN")], by = c("Team", "Locati
 # 
 # ## Adding back to game data
 # yby = left_join(yby05, sites[c("Team", "Location", "HAN")], by = c("Team", "Location"))
->>>>>>> Stashed changes
 
 
 
@@ -53,12 +48,12 @@ coaches = coaches %>%
 # filter by year, and ensure one row per year, team, coach, combo 
 # join coaches and year by year  ----
 game_results = yby %>%
-  select(Date, Year, Team, Opponent, PF, PA, HAN) 
+  select(Date, Year, Team, Opponent, PF, PA) 
 
 # Access winners
 winners = game_results %>%
   left_join(coaches, by = c("Year", "Team")) %>%
-  select(Team, Year, Opponent, Coach, han_winner = HAN)
+  select(Team, Year, Opponent, Coach)
 
 # Access losers
 losers = game_results %>%
@@ -91,21 +86,11 @@ cr2 = coach_results %>%
     date = as.numeric(lubridate::mdy(Date)) 
   ) %>%
   arrange(date) %>%
-  select(date, coach = Coach, coach2, coach_win, coach_margin, year = Year, han_winner)
+  select(date, coach = Coach, coach2, coach_win, coach_margin, year = Year)
 
 cr2 = cr2[complete.cases(cr2), ] %>% 
   filter(coach != "Deleted") %>% 
-  filter(coach2 != "Deleted")  %>%
-  # mutate(han = ifelse(coach_win == 0 & han_winner == "Away", "Home", 
-  #                      ifelse(coach_win == 0 & han_winner == "Home", "Away", han_winner)
-  #               )
-  #   ) %>%
-  # select(-han_winner)
-
-# coach_win == 1                    ---> han2 = han
-# coach_win == 0 & han == "Neutral" ---> han2 = "Neutral"
-# coach_win == 0 & han == "Away"    ---> han2 = "Home"
-# coach_win == 0 & han == "Home"    ---> han2 = "Away"
+  filter(coach2 != "Deleted")  
 
 cr2
 
@@ -115,4 +100,4 @@ cr2
 ### Write data to file
 ##################################################
 
-write.csv(cr2, file = "data/elo-game-data.csv", row.names = FALSE)
+write.csv(cr2, file = "data/elo-game-data-2017-09-08.csv", row.names = FALSE)
