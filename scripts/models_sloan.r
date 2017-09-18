@@ -33,6 +33,13 @@ win_nogame_1 <- glmer(win_calc ~ 1 +
                       control = glmerControl(optimizer = "bobyqa",
                                              optCtrl = list(maxfun = 10000)))
 
+win_nogame_year <- glmer(win_calc ~ 1 + 
+                           (1 | Coach:Year) +
+                           (1 | Team),
+                         data = yby_coach, family = binomial,
+                         control = glmerControl(optimizer = "bobyqa",
+                                                optCtrl = list(maxfun = 10000)))
+
 # Winning Percentage
 yby_coach_wp <- yby_coach %>%
   group_by(Coach, Team) %>%
@@ -47,4 +54,18 @@ win_per_mod <- lmer(win_per ~ 1 +
 
 # combine model results by Team, Coach, Year
 
+coach_by_year <- ranef(win_nogame_year)$`Coach:Year`
+coach_by_year$coach_year <- rownames(coach_by_year)
+coach_year <- do.call('rbind', strsplit(coach_by_year$coach_year, ':'))
+names(coach_year) <- c('Coach', 'Year')
+coach_year <- data.frame(coach_year)
+names(coach_year) <- c('Coach', 'Year')
+coach_by_year <- bind_cols(coach_by_year, coach_year)
+names(coach_by_year)[1] <- 'rating'
 
+coach_by_year %>%
+  filter(Coach %in% c('Mack Brown', 'Kirk Ferentz', 'Glen Mason')) %>%
+  ggplot(aes(x = Year, y = rating)) +
+  geom_line(aes(color = Coach, group = Coach)) + 
+  theme_bw()
+  
