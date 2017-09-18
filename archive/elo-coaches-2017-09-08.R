@@ -100,9 +100,11 @@ nrow(ELO)
 ELO = ELO %>% select(Coach = Player, Year, Rating, Rank)
 head(ELO %>% arrange(Coach, Year))
 
-ELO2 = coaches %>% 
-  select(Coach, Year) %>% arrange(Coach, Year) %>%
-  left_join(ELO, by = c("Coach", "Year"))
+ELO2 = ELO %>% 
+  arrange(Coach, Year) %>%
+  left_join(coaches, by = c("Coach", "Year")) %>%
+  select(Coach, Year, Team, Rating, Rank) %>%
+  na.omit(Team)
 
 
 

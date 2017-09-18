@@ -85,11 +85,11 @@ write_csv(ELO5, "data/elo-ratings-2017-09-09.csv")
 ### Plot of ratings over time
 ##################################################
 
-ELO4 %>% 
+ELO2 %>% 
   filter(Coach %in% c("Glen Mason", "Kirk Ferentz", "Mack Brown", "Tim Brewster")) %>%
   ggplot(data = ., aes(x = Year, y = Rating, color = Team)) +
   geom_line() +
-  geom_hline(aes(yintercept = avg_team_elo, color = Team)) +
+  #geom_hline(aes(yintercept = avg_team_elo, color = Team)) +
   theme_bw() +
   facet_wrap(~Coach)
 
@@ -103,11 +103,11 @@ ELO4 %>%
   facet_wrap(~Coach)
 
 
-ELO4 %>% 
+ELO2 %>% 
   filter(Team %in% c("Minnesota", "Iowa", "Texas")) %>%
   ggplot(data = ., aes(x = Year, y = Rating, color = Coach)) +
   geom_line() +
-  geom_hline(aes(yintercept = avg_team_elo)) +
+  #geom_hline(aes(yintercept = avg_team_elo)) +
   theme_bw() +
   facet_wrap(~Team, nrow = 3)
 
