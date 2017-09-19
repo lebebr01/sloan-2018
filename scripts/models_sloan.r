@@ -62,10 +62,33 @@ coach_year <- data.frame(coach_year)
 names(coach_year) <- c('Coach', 'Year')
 coach_by_year <- bind_cols(coach_by_year, coach_year)
 names(coach_by_year)[1] <- 'rating'
+coach_by_year$Year <- as.numeric(as.character(coach_by_year$Year))
 
-coach_by_year %>%
-  filter(Coach %in% c('Mack Brown', 'Kirk Ferentz', 'Glen Mason')) %>%
-  ggplot(aes(x = Year, y = rating)) +
-  geom_line(aes(color = Coach, group = Coach)) + 
-  theme_bw()
+# add in team information
+coaches <- readr::read_csv('data/coaches_to2015.csv')
+coaches <- select(coaches, Team, Year, Coach)
+
+coach_by_year <- coach_by_year %>%
+  left_join(coaches)
+
+# add in team random effects
+team_ranef <- ranef(win_nogame_year)$Team
+team_ranef$Team <- rownames(team_ranef)
+names(team_ranef)[1] <- 'avg_team_rating'
+
+coach_by_year <- coach_by_year %>%
+  left_join(team_ranef)
+
+readr::write_csv(coach_by_year, path = 'data/glmm_coach_year.csv')
+
+
+# Output for winning percentage model
+coach_winper <- ranef(win_per_mod)$Coach
+
+
+# coach_by_year %>%
+#   filter(Coach %in% c('Mack Brown', 'Kirk Ferentz', 'Glen Mason', "Joe Paterno")) %>%
+#   ggplot(aes(x = Year, y = rating)) +
+#   geom_line(aes(color = Coach, group = Coach)) + 
+#   theme_bw()
   
