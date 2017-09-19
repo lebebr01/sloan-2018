@@ -91,4 +91,3 @@ coach_winper <- ranef(win_per_mod)$Coach
 #   ggplot(aes(x = Year, y = rating)) +
 #   geom_line(aes(color = Coach, group = Coach)) + 
 #   theme_bw()
-  
