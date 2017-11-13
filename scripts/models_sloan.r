@@ -42,7 +42,7 @@ win_nogame_year <- glmer(win_calc ~ 1 +
 
 # Winning Percentage
 yby_coach_wp <- yby_coach %>%
-  group_by(Coach, Team) %>%
+  group_by(Coach, Team, Year) %>%
   mutate(win_per = mean(win_calc)) %>%
   distinct(Coach, Team, Year, .keep_all = TRUE)
 
