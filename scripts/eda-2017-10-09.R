@@ -31,6 +31,11 @@ ELO2 <- ELO2 %>%
       #                                                    ifelse(Job_End_Category == 4, 'Resigned',
       #                                                           'Fired')))))
 crazy = ELO2 %>% group_by(Job_End_Category2) %>%
+
+
+
+crazy = ELO2 %>% group_by(Job_End_Category) %>%
+
   summarize(M = mean(Rating), Team = mean(avg_team_elo))
 
 my_sample = sample(unique(ELO2$C_Team ), size = 50, replace = FALSE)
@@ -105,10 +110,19 @@ left_job <- ELO2 %>%
   select(Coach) %>%
   distinct()
 
-ELO2 %>%
-  semi_join(left_job) %>%
-  ggplot(aes(x = yrs_coached_ovr, y = Rating, group = Coach, color = Job_End_Category2)) + 
-  geom_line(aes(x = yrs_coached_ovr, y = Rating, group = Coach, color = Job_End_Category2),
-            size = 1) + 
-  geom_text(data = filter(last_coach, Job_End_Category2 == 'Left Better Job'), aes(label = Coach))
+
+ELO2 %>% 
+  #filter(C_Team %in% my_sample) %>%
+  ggplot(data = ., aes(x = years_coached, y = resid_elo, group = Coach, color = Team)) +
+  #geom_line(alpha = 0.3) +
+  geom_smooth(aes(group = Job_End_Category), se = FALSE) +
+  geom_smooth(aes(group = Job_End_Category, y = I(Rating-1500)), se = FALSE, linetype = "dotted") +
+  theme_bw() +
+  guides(color =  FALSE) +
+  facet_wrap(~Job_End_Category) +
+  xlim(0, 10) +
+  geom_hline(data = crazy, aes(yintercept = I(M-1500))) +
+  geom_hline(data = crazy, aes(yintercept = I(Team-1500)), color = "green")
+  
+
 

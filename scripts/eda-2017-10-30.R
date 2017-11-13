@@ -111,4 +111,3 @@ ELO2 %>%
   geom_line(aes(x = yrs_coached_ovr, y = Rating, group = Coach, color = Job_End_Category2),
             size = 1) + 
   geom_text(data = filter(last_coach, Job_End_Category2 == 'Left Better Job'), aes(label = Coach))
-
